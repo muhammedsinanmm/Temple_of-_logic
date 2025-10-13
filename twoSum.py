@@ -42,10 +42,13 @@ while (choice):
         target = int(input("Enter the target value:"))
 
         print(twoSum(li, target))
+        choice = input("Do you wanna continue (y/n): ").lower()
 
     elif need == 2:
         li = list(map(int, input("Enter the list of numbers: ").split()))
 
         print(moveZeros(li))
-    else:
+        choice = input("Do you wanna continue (y/n): ").lower()
+
+    if choice == "n" or need == 3:    
         break
