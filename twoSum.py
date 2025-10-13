@@ -21,11 +21,22 @@ def moveZeros(arr):
             j+=1
             
     return arr
+def missingNumber(arr):
+    if len(arr) != len(set(arr)):
+        print("Invalid array input, duplicates exist!")
+        return None
+    
+    why = 0
+    for i in range(len(arr)+1):
+        why ^= i
+    for num in arr:
+        why ^= num
+    return why
 # Input
 choice = True
 while (choice):
     print("\n")
-    print("Welcome to the temple of logics\n 1.find Two sum \n 2. move zeros to the end\n 3. exit")
+    print("Welcome to the temple of logics\n 1.find Two sum \n 2. move zeros to the end\n 3.Find the missing number of the sequence\n 4. exit")
     while(True):
         try:
             need = int(input("Enter the choice you need: "))
@@ -49,6 +60,9 @@ while (choice):
 
         print(moveZeros(li))
         choice = input("Do you wanna continue (y/n): ").lower()
-
-    if choice == "n" or need == 3:    
+    elif need == 3:
+        li = list(map(int, input("Enter the list of numbers: ").split()))       
+        print(missingNumber(li))
+        choice = input("Do you wanna continue (y/n): ").lower()
+    if choice == "n" or need == 4:    
         break
