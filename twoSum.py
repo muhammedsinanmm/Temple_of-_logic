@@ -26,12 +26,11 @@ def missingNumber(arr):
         print("Invalid array input, duplicates exist!")
         return None
     
-    xor = 0
-    for i in range(len(arr)+1):
-        xor ^= i
-    for num in arr:
-        xor ^= num
-    return xor
+    zeroCount = arr.count(0)
+    for i in range(zeroCount):
+        arr.remove(0)
+        arr.append(0)
+    return arr
 # Input
 choice = True
 while (choice):
