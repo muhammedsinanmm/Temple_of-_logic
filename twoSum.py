@@ -66,3 +66,4 @@ while (choice):
         choice = input("Do you wanna continue (y/n): ").lower()
     if choice == "n" or need == 4:    
         break
+    #its been a while to enter but trust me im on it and i will mke it look cool
