@@ -31,15 +31,35 @@ def missingNumber(arr):
         arr.remove(0)
         arr.append(0)
     return arr
+def stringCompression(string):
+    if not string:
+        print("The string is empty")
+    newString = ""
+    prev = ''
+    charCount = 1
+    for ch in string:
+        if ch == prev:
+            charCount += 1
+        else:
+            if newString:
+                newString += str(charCount)
+                newString += ch
+                charCount = 1
+                prev = ch
+            else:
+                newString += ch
+                prev = ch
+    newString += str(charCount)
+    return newString
 # Input
 choice = True
 while (choice):
     print("\n")
-    print("Welcome to the temple of logics\n 1.find Two sum \n 2. move zeros to the end\n 3.Find the missing number of the sequence\n 4. exit")
+    print("Welcome to the temple of logics\n 1.find Two sum \n 2. move zeros to the end\n 3.Find the missing number of the sequence\n 4.String Compression ! \n5. exit")
     while(True):
         try:
             need = int(input("Enter the choice you need: "))
-            if need> 3 or need < 1:
+            if need> 5 or need < 1:
                 print("Enter a valid choice")
             else:
                 break
@@ -63,6 +83,10 @@ while (choice):
         li = list(map(int, input("Enter the list of numbers: ").split()))       
         print(missingNumber(li))
         choice = input("Do you wanna continue (y/n): ").lower()
-    if choice == "n" or need == 4:    
+    elif need == 4:
+        string = input("Enter the string you need to compress: ")
+        print(stringCompression(string))
+        choice = input("Do you wanna continue ! (y/n) : ")
+    if choice == "n" or need == 5:    
         break
     
