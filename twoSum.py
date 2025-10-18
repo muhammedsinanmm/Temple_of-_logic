@@ -25,12 +25,10 @@ def missingNumber(arr):
     if len(arr) != len(set(arr)):
         print("Invalid array input, duplicates exist!")
         return None
-    
-    zeroCount = arr.count(0)
-    for i in range(zeroCount):
-        arr.remove(0)
-        arr.append(0)
-    return arr
+    n = len(arr)
+    sumOfArr = sum(arr)
+    sumOfN = (n*(n+1))//2
+    return sumOfN - sumOfArr
 def stringCompression(string):
     if not string:
         print("The string is empty")
@@ -51,6 +49,7 @@ def stringCompression(string):
                 prev = ch
     newString += str(charCount)
     return newString
+
 # Input
 choice = True
 while (choice):
